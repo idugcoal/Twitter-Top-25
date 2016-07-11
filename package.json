@@ -1,0 +1,19 @@
+{
+  "name": "twitter-top-25",
+  "version": "1.0.0",
+  "description": "React implementation of AngularJS Twitter CA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idugcoal/Twitter-Top-25.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idugcoal/Twitter-Top-25/issues"
+  },
+  "homepage": "https://github.com/idugcoal/Twitter-Top-25#readme"
+}
