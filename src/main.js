@@ -13,7 +13,7 @@ const router = (
   <MuiThemeProvider muiTheme={getMuiTheme()}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={Tweet} />
+        <IndexRoute component={Landing} />
         <Route path="/tweet" component={Tweet} />
         <Route path="/test" component={Test} />
       </Route>

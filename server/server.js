@@ -3,12 +3,15 @@ var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpack = require('webpack');
 var webpackConfig = require('../webpack.config.js');
 var routes = require('./routes/index');
+var path = require('path');
 
 var app = express();
 var compiler = webpack(webpackConfig);
 
 // app.use('/', routes);
 app.use(express.static('./www'));
+app.use(express.static('./style'));
+
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
   filename: 'bundle.js',
@@ -19,10 +22,14 @@ app.use(webpackDevMiddleware(compiler, {
   historyApiFallback: true,
 }));
 
-app.get('/tweet', function(req,res){
-  res.redirect('/tweet');
-  res.end()
-})
+app.get('/*', (req,res) => {
+ res.sendFile(path.resolve('www/index.html'));
+});
+
+// app.get('/tweet', function(req,res){
+//   res.redirect('/tweet');
+//   res.end()
+// })
 
 
 app.set('port', process.env.PORT || 8080);
