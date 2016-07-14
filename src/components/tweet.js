@@ -7,14 +7,23 @@ export default class Tweet extends Component {
 
  constructor(props) {
     super(props);
+    console.log('props in tweet', props)
     this.state = {
-      expanded: false,
+      'tweetInfo': this.props.tweetInfo,
     };
+  }
+
+  handleFavorite() {
+    console.log('Favorited!');
+  }
+
+  handleHide() {
+    console.log('Hidden!');
   }
 
   render() {
 		return (
-			<Card expanded={this.state.expanded} onExpandChange={this.handleExpandChange}>
+			<Card>
         <CardHeader
           title="URL Avatar"
           subtitle="Subtitle"
@@ -25,13 +34,9 @@ export default class Tweet extends Component {
         <CardText>
           Tweedly tweedly deet
         </CardText>
-        <CardMedia
-          expandable={false}
-        >
-        </CardMedia>
         <CardActions>
-          <FlatButton label="Expand" onTouchTap={this.handleExpand} />
-          <FlatButton label="Reduce" onTouchTap={this.handleReduce} />
+          <FlatButton label="Hide" onTouchTap={this.handleHide.bind(this)} />
+          <FlatButton label="Favorite" onTouchTap={this.handleFavorite.bind(this)} />
         </CardActions>
       </Card>
 		)

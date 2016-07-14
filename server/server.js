@@ -30,23 +30,36 @@ const client = new Twitter({
   access_token_key: secret.twitter.accessToken,
   access_token_secret: secret.twitter.accessTokenSecret
 });
-console.log('client', client)
-var params = {screen_name: 'nodejs'};
-client.get('statuses/user_timeline', params, (error, tweets, response) => {
-  if(!error)
-    console.log(tweets);
-  console.log(error);
-});
 
 
-app.get('/*', (req,res) => {
- res.sendFile(path.resolve('www/index.html'));
+
+app.get('/getTweets', function(req, res) {
+ 
+  console.log('in getTweets route')
+  var params = {screen_name: 'idugcoal', count: '25'};
+  client.get('statuses/user_timeline', params, function(error, tweets, response) {
+    if(!error) {
+      console.log(tweets[24]);
+      res.send(tweets);
+    }
+    console.log(error);
+  });
 });
+
+// app.get('/*', (req,res) => {
+//   console.log('IN STAR ROUTE')
+//   res.sendFile(path.resolve('www/index.html'));
+// });
+
+// app.get('/tweets', (req, res) => {
+//   console.log('req', req, 'res', res);
+// });
 
 // app.get('/tweet', function(req,res){
 //   res.redirect('/tweet');
 //   res.end()
 // })
+
 
 
 app.set('port', process.env.PORT || 8080);

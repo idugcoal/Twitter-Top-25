@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/app';
 import Landing from './components/landing';
 import Tweet from './components/tweet';
+import Tweets from './components/tweets';
 import Test from './components/test'
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -16,6 +17,8 @@ const router = (
         <IndexRoute component={Landing} />
         <Route path="/tweet" component={Tweet} />
         <Route path="/test" component={Test} />
+        <Route path="/tweets" component={Tweets} />
+       
       </Route>
     </Router>
   </MuiThemeProvider>
