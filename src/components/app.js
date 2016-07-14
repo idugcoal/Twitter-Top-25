@@ -6,8 +6,6 @@ export default class App extends Component {
     return (
       <span>
         <Header />
-        hi i'm in app
-        <br />
         {this.props.children}
       </span>
     );
