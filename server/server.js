@@ -31,18 +31,17 @@ const client = new Twitter({
   access_token_secret: secret.twitter.accessTokenSecret
 });
 
-
-
 app.get('/getTweets', function(req, res) {
- 
-  console.log('in getTweets route')
-  var params = {screen_name: 'idugcoal', count: '25'};
+  
+  console.log('REQUEST', req)
+  // console.log('in getTweets route')
+  var params = {screen_name: 'idugcoal', count: '1'};
   client.get('statuses/user_timeline', params, function(error, tweets, response) {
     if(!error) {
-      console.log(tweets[24]);
+      // console.log(tweets[24]);
       res.send(tweets);
     }
-    console.log(error);
+    // console.log(error);
   });
 });
 

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
-import Tweets from './tweets';
-import GetTweets from './getTweets'
+import TweetContainer from './tweetContainer';
 
 export default class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
-      tweetList: [{'doug': 'hello'}, {'rong': 'hi'}, {'peter': 'hola'}, {'lukas': 'sup'}],
+      value: "",      
     };
   }
 
@@ -22,20 +20,14 @@ export default class SearchBar extends Component {
     if(event.keyCode === 13) {
       //search twitter with this.state.value or event.target.value
       // console.log(this.state.value)
-      this.getTweets().bind(this);
+     console.log('Enter key pressed');
     }
   }
 
-  getTweets() {
-    // get tweets from server
-    tweets = GetTweets(this.state.value);
-    console.log('MOTHERFUCKIN TWEETS', tweets);
-    // put tweets onto state
-    this.setState({'tweetList': tweets});
-  }
-
   render() {
+     {console.log('in searchBar render, state:', this.state.value)}
     return (
+
       <span>
         <TextField 
           hintText="Enter a twitter handle"
@@ -43,10 +35,7 @@ export default class SearchBar extends Component {
           onChange={this.handleChange.bind(this)}
           onKeyDown={this.handleKeyDown.bind(this)}
         />
-        <Tweets
-          username={this.state.value}
-          tweetList={this.state.tweetList}
-        / >
+        <TweetContainer username={this.state.value}/>
       </span>
     )
   }

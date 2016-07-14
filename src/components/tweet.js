@@ -7,10 +7,17 @@ export default class Tweet extends Component {
 
  constructor(props) {
     super(props);
-    console.log('props in tweet', props)
+    // console.log('props in tweet', props)
     this.state = {
       'tweetInfo': this.props.tweetInfo,
     };
+
+    /*
+        <CardActions>
+          <FlatButton label="Hide" onTouchTap={this.handleHide.bind(this)} />
+          <FlatButton label="Favorite" onTouchTap={this.handleFavorite.bind(this)} />
+        </CardActions>
+    */
   }
 
   handleFavorite() {
@@ -34,10 +41,6 @@ export default class Tweet extends Component {
         <CardText>
           Tweedly tweedly deet
         </CardText>
-        <CardActions>
-          <FlatButton label="Hide" onTouchTap={this.handleHide.bind(this)} />
-          <FlatButton label="Favorite" onTouchTap={this.handleFavorite.bind(this)} />
-        </CardActions>
       </Card>
 		)
 	}
