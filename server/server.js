@@ -7,7 +7,7 @@ var routes = require('./routes/index');
 var app = express();
 var compiler = webpack(webpackConfig);
 
-app.use('/', routes);
+// app.use('/', routes);
 app.use(express.static('./www'));
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
@@ -18,6 +18,12 @@ app.use(webpackDevMiddleware(compiler, {
   },
   historyApiFallback: true,
 }));
+
+app.get('/tweet', function(req,res){
+  res.redirect('/tweet');
+  res.end()
+})
+
 
 app.set('port', process.env.PORT || 8080);
 
