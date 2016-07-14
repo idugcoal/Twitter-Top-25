@@ -4,6 +4,8 @@ var webpack = require('webpack');
 var webpackConfig = require('../webpack.config.js');
 var routes = require('./routes/index');
 var path = require('path');
+var Twitter = require('twitter');
+var secret = require('../secret');
 
 var app = express();
 var compiler = webpack(webpackConfig);
@@ -21,6 +23,21 @@ app.use(webpackDevMiddleware(compiler, {
   },
   historyApiFallback: true,
 }));
+
+const client = new Twitter({
+  consumer_key: secret.twitter.consumerKey,
+  consumer_secret: secret.twitter.consumerSecret,
+  access_token_key: secret.twitter.accessToken,
+  access_token_secret: secret.twitter.accessTokenSecret
+});
+console.log('client', client)
+var params = {screen_name: 'nodejs'};
+client.get('statuses/user_timeline', params, (error, tweets, response) => {
+  if(!error)
+    console.log(tweets);
+  console.log(error);
+});
+
 
 app.get('/*', (req,res) => {
  res.sendFile(path.resolve('www/index.html'));
