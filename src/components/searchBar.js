@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField';
 export default class SearchBar extends Component {
   render() {
     return (
-      <TextField defaultValue="Enter a twitter handle" />
+      <TextField hintText="Enter a twitter handle" />
     )
   }
   
