@@ -8,11 +8,11 @@ export default class Tweets extends Component {
     this.state = {
       'tweetList': this.props.tweetList
     }
-    console.log('state in Tweets:', this.state)
-
   }
 
   render() {
+    {console.log('in Tweets:', this.state.tweetList)}
+
     return (
       <span>
         {this.state.tweetList.map((tweet, index) => {

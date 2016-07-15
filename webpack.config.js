@@ -16,6 +16,10 @@ var config = {
         exclude: /node_modules/,
         loaders: ['babel'],
       },
+      { 
+        test: /\.json$/, 
+        loader: "json-loader"
+      }
     ],
   },
   resolveLoader: {

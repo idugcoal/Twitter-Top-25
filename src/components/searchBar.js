@@ -6,7 +6,8 @@ export default class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",      
+      value: "",
+      showTweetContainer: false,      
     };
   }
 
@@ -20,14 +21,14 @@ export default class SearchBar extends Component {
     if(event.keyCode === 13) {
       //search twitter with this.state.value or event.target.value
       // console.log(this.state.value)
-     console.log('Enter key pressed');
+      if(event.target.value.length > 1) this.setState({showTweetContainer: true});
+      else this.setState({showTweetContainer: false});
+      console.log('Enter key pressed');
     }
   }
 
   render() {
-     {console.log('in searchBar render, state:', this.state.value)}
     return (
-
       <span>
         <TextField 
           hintText="Enter a twitter handle"
@@ -35,7 +36,7 @@ export default class SearchBar extends Component {
           onChange={this.handleChange.bind(this)}
           onKeyDown={this.handleKeyDown.bind(this)}
         />
-        <TweetContainer username={this.state.value}/>
+        { this.state.showTweetContainer ? <TweetContainer username={this.state.value} /> : null }
       </span>
     )
   }
