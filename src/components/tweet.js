@@ -8,9 +8,9 @@ export default class Tweet extends Component {
  constructor(props) {
     super(props);
     // console.log('props in tweet', props)
-    this.state = {
-      'tweetInfo': this.props.tweetInfo,
-    };
+    // this.state = {
+    //   'tweetInfo': this.props.tweetInfo,
+    // };
 
     /*
         <CardActions>
@@ -20,27 +20,26 @@ export default class Tweet extends Component {
     */
   }
 
-  handleFavorite() {
-    console.log('Favorited!');
-  }
+  // handleFavorite() {
+  //   console.log('Favorited!');
+  // }
 
-  handleHide() {
-    console.log('Hidden!');
-  }
+  // handleHide() {
+  //   console.log('Hidden!');
+  // }
 
   render() {
 		return (
 			<Card>
         <CardHeader
-          title="URL Avatar"
-          subtitle="Subtitle"
-          avatar="http://lorempixel.com/100/100/nature/"
+          title={this.props.tweet.user.screen_name}
+          subtitle={this.props.tweet.user.name}
+          avatar={this.props.tweet.user.profile_image_url}
           actAsExpander={false}
           showExpandableButton={false}
         />
         <CardText>
-          Tweedly tweedly deet
-          {this.props.tweetInfo}
+          {this.props.tweet.text}
         </CardText>
       </Card>
 		)

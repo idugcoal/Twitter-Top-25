@@ -20,6 +20,7 @@
     "url": "git://github.com/idugcoal/Twitter-Top-25"
   },
   "dependencies": {
+    "axios": "^0.13.0",
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
