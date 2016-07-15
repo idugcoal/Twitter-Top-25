@@ -5,9 +5,9 @@ export default class Tweets extends Component {
   constructor(props) {
     super(props)
     // console.log('props in Tweets:', this.props)
-    this.state = {
-      'tweetList': this.props.tweetList
-    }
+    // this.state = {
+    //   'tweetList': this.props.tweetList
+    // }
   }
 
   render() {
@@ -15,7 +15,7 @@ export default class Tweets extends Component {
 
     return (
       <span>
-        {this.state.tweetList.map((tweet, index) => {
+        {this.props.tweetContent.map((tweet, index) => {
           return <span> <Tweet key={index} tweetInfo={tweet} /> <br /> </span>
         })}
       </span>

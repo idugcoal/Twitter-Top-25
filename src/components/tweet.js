@@ -40,6 +40,7 @@ export default class Tweet extends Component {
         />
         <CardText>
           Tweedly tweedly deet
+          {this.props.tweetInfo}
         </CardText>
       </Card>
 		)
