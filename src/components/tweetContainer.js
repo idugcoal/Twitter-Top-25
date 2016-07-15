@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Tweets from './tweets';
+import Tweet from './tweet';
 const fetch = require('isomorphic-fetch');
 const headers = new Headers();
-require('es6-promise').polyfill();
 const http = require('http');
+require('es6-promise').polyfill();
 
 export default class TweetContainer extends Component {
   constructor(props) {
@@ -14,9 +15,9 @@ export default class TweetContainer extends Component {
     }
   }
 
-  componentWillReceiveProps(props) {
-    this.setState({'username': props.username})
-  }
+  // componentWillReceiveProps(props) {
+  //   this.setState({'username': props.username})
+  // }
 
   componentWillMount() {
     var data = '';
@@ -34,42 +35,36 @@ export default class TweetContainer extends Component {
       }
     }
 
-    var request = http.request(options, (res) => {
+    const request = http.request(options, (res) => {
       var str = '';
       res.on('data', (chunk) => {
         str += chunk;
       });
       res.on('end', () => {
+        console.log('heeeeere')
         this.setState({tweetList: str})
       })
     })
 
     request.end(this.state.username);
 
+  }
 
-    // fetch('http://localhost:8080/getTweets')
-    //   .then((res) => {
-    //     return res.text();
-    //   }).then((body) => {
-    //     console.log('body in fetch', body);
-    //     this.setState({'tweetList': body})
-    //   });
-    // console.log(init);
-    // fetch('http://localhost:8080/getTweets', init)
-    //   .then((res) => {
-    //     console.log('IN FETCH', res)
-    //     return res.text();
-    //   }).then((tweets) => {
-    //     console.log('TWEETS', tweets.replace(/['"]+/g, ''));
-    //     this.setState({tweetList: tweets.replace(/['"]+/g, '')})
-    //   })
+  renderList() {
+    {console.log('in renderList', this.props, this.state)}
+    return (this.props.tweetList.map((tweet, index) => {
+      <Tweet key={index} tweetContent={tweet} />
+    }))
+
   }
 
   render() {
       {console.log('in TweetContainer', this.state.tweetList)}
     return (
-      <Tweets tweetList={this.state.tweetList} />
-    
+      <span>
+      {this.state.username}
+      <Tweets tweetContent={this.state.tweetList} />
+      </span>   
     )
 
   }

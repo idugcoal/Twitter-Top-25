@@ -75,10 +75,6 @@ app.post('/getTweets', function(req, res) {
       }
     });
   })
-  console.log('BODY', JSON.stringify(body));
-
-  
-
 })
 
 // app.get('/*', (req,res) => {
