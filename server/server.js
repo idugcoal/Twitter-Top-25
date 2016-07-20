@@ -45,12 +45,14 @@ const client = new Twitter({
 });
 
 app.post('/getTweets', function(req, res) {
+  console.log('in getTweets')
   var body = ''
   req.on('data', (chunk) => {
     body += chunk;
   });
   req.on('end', () => {
     let username = JSON.parse(body);
+    console.log('body', body);
 
     var params = {screen_name: username.username, count: '25'};
     client.get('statuses/user_timeline', params, function(error, tweets, response) {

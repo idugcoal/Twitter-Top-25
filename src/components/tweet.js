@@ -5,7 +5,7 @@ import Toggle from 'material-ui/Toggle';
 
 export default class Tweet extends Component {
 
- constructor(props) {
+  constructor(props) {
     super(props);
     // console.log('props in tweet', props)
     // this.state = {
