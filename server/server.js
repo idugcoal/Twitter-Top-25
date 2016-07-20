@@ -18,15 +18,17 @@ app.use(express.static('./www'));
 app.use(express.static('./style'));
 app.use(cors({ origin: 'http://localhost:8080', credentials: true }));
 
-app.use(webpackDevMiddleware(compiler, {
-  hot: true,
-  filename: 'bundle.js',
-  publicPath: '/',
-  stats: {
-    colors: true,
-  },
-  historyApiFallback: true,
-}));
+// app.use(webpackDevMiddleware(compiler, {
+//   hot: true,
+//   filename: 'bundle.js',
+//   publicPath: '/',
+//   stats: {
+//     colors: true,
+//   },
+//   historyApiFallback: true,
+// }));
+
+app.use(webpackDevMiddleware(compiler, { noInfo: true}));
 
 app.set('port', process.env.PORT || 8080);
 
