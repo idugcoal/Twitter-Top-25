@@ -11,12 +11,12 @@ export default class Tweets extends Component {
   }
 
   render() {
-    {console.log('in Tweets:', this.state.tweetList)}
+    {console.log('in Tweets:', this.props.tweets)}
 
     return (
       <span>
-        {this.props.tweetContent.map((tweet, index) => {
-          return <span> <Tweet key={index} tweetInfo={tweet} /> <br /> </span>
+        {this.props.tweets.map((tweet, index) => {
+          return <span key={index}> <Tweet tweet={tweet} /> <br /> </span>
         })}
       </span>
     )

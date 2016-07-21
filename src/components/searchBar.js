@@ -24,6 +24,7 @@ export default class SearchBar extends Component {
       if(event.target.value.length > 1) this.setState({showTweetContainer: true});
       else this.setState({showTweetContainer: false});
       console.log('Enter key pressed');
+      this.setState({value: ''})
     }
   }
 
