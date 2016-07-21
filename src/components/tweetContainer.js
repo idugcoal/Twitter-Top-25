@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Tweets from './tweets';
-import Tweet from './tweet';
 const axios = require('axios');
 
 export default class TweetContainer extends Component {
