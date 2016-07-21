@@ -19,12 +19,9 @@ export default class SearchBar extends Component {
 
   handleKeyDown(event) {
     if(event.keyCode === 13) {
-      //search twitter with this.state.value or event.target.value
-      // console.log(this.state.value)
       if(event.target.value.length > 1) this.setState({showTweetContainer: true});
       else this.setState({showTweetContainer: false});
-      console.log('Enter key pressed');
-      this.setState({value: ''})
+      this.setState({value: event.target.value})
     }
   }
 

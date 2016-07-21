@@ -5,7 +5,6 @@ export default class App extends Component {
   render() {
     return (
       <span>
-        <Header />
         {this.props.children}
       </span>
     );

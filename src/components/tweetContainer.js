@@ -8,13 +8,11 @@ export default class TweetContainer extends Component {
     super(props);
     this.state = {
       tweetList: [],
-      username: this.props.username
     }
   }
   
   componentDidMount() {
-    var that = this;
-    var config = {
+    var reqConfig = {
       headers: {
         'Content-Type': 'x-www-form-urlencoded',
         'Content-Type': 'text/html'
@@ -22,11 +20,10 @@ export default class TweetContainer extends Component {
     }
 
     this.serverRequest = 
-      axios.post('http://localhost:8080/getTweets', {username: this.props.username}, config)
-        .then(function(result) {
-          that.setState({tweetList: result.data})
-         });
-    
+      axios.post('http://localhost:8080/getTweets', {username: this.props.username}, reqConfig)
+        .then((result) => {
+          this.setState({tweetList: result.data})
+         });  
   }
 
   componentWillUnmount() {
@@ -35,7 +32,6 @@ export default class TweetContainer extends Component {
 
 
   render() {
-      {console.log('in TweetContainer', this.state)}
     return (
       <span>
         <Tweets tweets={this.state.tweetList} />
