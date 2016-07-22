@@ -2,35 +2,18 @@ import React, { Component } from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
+import DateDisplay from './dateDisplay'
 
 export default class Tweet extends Component {
 
   constructor(props) {
     super(props);
-    // console.log('props in tweet', props)
-    // this.state = {
-    //   'tweetInfo': this.props.tweetInfo,
-    // };
-
-    /*
-        <CardActions>
-          <FlatButton label="Hide" onTouchTap={this.handleHide.bind(this)} />
-          <FlatButton label="Favorite" onTouchTap={this.handleFavorite.bind(this)} />
-        </CardActions>
-    */
   }
 
-  // handleFavorite() {
-  //   console.log('Favorited!');
-  // }
-
-  // handleHide() {
-  //   console.log('Hidden!');
-  // }
-
   render() {
-		return (
-			<Card>
+    return (
+    <span>
+      <Card>
         <CardHeader
           title={this.props.tweet.user.screen_name}
           subtitle={this.props.tweet.user.name}
@@ -40,8 +23,10 @@ export default class Tweet extends Component {
         />
         <CardText>
           {this.props.tweet.text}
+          <DateDisplay date={this.props.tweet.created_at} />
         </CardText>
       </Card>
+    </span>
 		)
 	}
 }

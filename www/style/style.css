@@ -14,7 +14,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf1f6', end
   justify-content: center;
 }
 
-.container {
+#container {
   display: flex;
   justify-content: center;
 }
