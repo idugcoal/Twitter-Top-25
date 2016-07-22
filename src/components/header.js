@@ -14,7 +14,7 @@ export default class Header extends Component {
   render() {
     return (
       <span>
-        <h1>Welcome to Twitter Top 25!</h1>
+        <h1 className="title">Welcome to Twitter Top 25!</h1>
         <SearchBar onSearchEnter={this.handleSearch.bind(this)} style={{display: 'flex', justifyContent: 'center'}} />
       </span>
     )
