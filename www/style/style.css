@@ -5,8 +5,6 @@ background: -webkit-linear-gradient(top, #ebf1f6 0%,#abd3ee 50%,#89c3eb 51%,#d5e
 background: linear-gradient(to bottom, #ebf1f6 0%,#abd3ee 50%,#89c3eb 51%,#d5ebfb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf1f6', endColorstr='#d5ebfb',GradientType=0 ); /* IE6-9 */
 
-
-
 }
 
 .mount {
@@ -17,9 +15,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf1f6', end
 #container {
   display: flex;
   justify-content: center;
-  width: 50vw;
+  max-width: 100px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  font-family: Verdana, Geneva, sans-serif;
+
 }
 
 .searchBar {
-  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.tweet {
+  display: flex;
+  max-width: 50vw;
+  align-content: center;
 }

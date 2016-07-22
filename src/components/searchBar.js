@@ -18,7 +18,7 @@ export default class SearchBar extends Component {
   handleKeyDown(event) {
     if(event.keyCode === 13) {
       if(event.target.value.length > 1) this.props.onSearchEnter(event.target.value);
-      this.setState({value: event.target.value})
+      this.setState({value: ""})
     }
   }
 
