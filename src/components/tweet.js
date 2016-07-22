@@ -11,7 +11,7 @@ export default class Tweet extends Component {
   render() {
     return (
       <span>
-        <Card>
+        <Card style={{width: '25vw'}}>
           <CardHeader
             title={this.props.tweet.user.screen_name}
             subtitle={this.props.tweet.user.name}
