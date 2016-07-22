@@ -11,7 +11,6 @@ export default class Header extends Component {
   }
 
   handleSearch(username) {
-    console.log('username in header', username)
     this.props.onSearch(username);
   }
 
