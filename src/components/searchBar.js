@@ -24,9 +24,9 @@ export default class SearchBar extends Component {
 
   render() {
     return (
-      <span>
+      <span className="searchBar">
         <TextField 
-          hintText="Enter a twitter handle"
+          hintText={"Enter a twitter handle"}
           value={this.state.value}
           onChange={this.handleChange.bind(this)}
           onKeyDown={this.handleKeyDown.bind(this)}

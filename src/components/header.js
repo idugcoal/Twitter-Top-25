@@ -15,7 +15,7 @@ export default class Header extends Component {
     return (
       <span>
         <h1>Welcome to Twitter Top 25!</h1>
-        <SearchBar onSearchEnter={this.handleSearch.bind(this)} />
+        <SearchBar onSearchEnter={this.handleSearch.bind(this)} style={{display: 'flex', justifyContent: 'center'}} />
       </span>
     )
   }
