@@ -20,7 +20,6 @@ export default class Tweets extends Component {
     }
 
     this.serverRequest = 
-      console.log('in CDM', this.props.username)
       axios.post('http://localhost:8080/getTweets', {username: this.props.username}, reqConfig)
         .then((result) => {
           this.setState({tweetList: result.data})
@@ -41,6 +40,8 @@ export default class Tweets extends Component {
   }
   
   render() {
-    return <span> {this.renderList(this.state.tweetList)} </span>
+    {console.log('in tweets yooo', this.state.tweetList)
+    return <span> {this.renderList(this.props.tweetList)} </span>
+    }
   }
 }
