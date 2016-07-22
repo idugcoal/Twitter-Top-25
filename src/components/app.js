@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-import Header from './header';
-import Tweets from './tweets';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Header from './header';
+import Tweets from './tweets';
 const axios = require('axios');
-
 
 export default class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {showTweets: false, username: '', tweetList: []}
+    this.state = {tweetList: []}
   }
 
-  getUsername(username) {
+  getTweets(username) {
     var reqConfig = {
       headers: {
         'Content-Type': 'x-www-form-urlencoded',
@@ -28,12 +27,11 @@ export default class App extends Component {
          });  
   }
   
-
   render() {
     return (
       <MuiThemeProvider muiTheme={getMuiTheme()}>
         <span className="container">
-          <Header onSearch={this.getUsername.bind(this)} />
+          <Header onSearch={this.getTweets.bind(this)} />
           <Tweets tweetList={this.state.tweetList} />
         </span>
       </MuiThemeProvider>

@@ -17,4 +17,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf1f6', end
 #container {
   display: flex;
   justify-content: center;
+  width: 50vw;
+}
+
+.searchBar {
+  align-items: center;
 }

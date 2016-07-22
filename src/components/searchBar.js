@@ -6,7 +6,6 @@ export default class SearchBar extends Component {
     super(props);
     this.state = {
       value: "",
-      showTweetContainer: false,      
     };
   }
 
@@ -19,16 +18,15 @@ export default class SearchBar extends Component {
   handleKeyDown(event) {
     if(event.keyCode === 13) {
       if(event.target.value.length > 1) this.props.onSearchEnter(event.target.value);
-      else this.setState({showTweetContainer: false});
       this.setState({value: event.target.value})
     }
   }
 
   render() {
     return (
-      <span>
+      <span className="searchBar">
         <TextField 
-          hintText="Enter a twitter handle"
+          hintText={"Enter a twitter handle"}
           value={this.state.value}
           onChange={this.handleChange.bind(this)}
           onKeyDown={this.handleKeyDown.bind(this)}
