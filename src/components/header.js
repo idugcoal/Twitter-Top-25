@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
 import SearchBar from './searchBar'
-import TweetContainer from './tweetContainer'
 
 export default class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: "",
+      showTweetContainer: false,      
+    };
+  }
+
+  handleSearch(username) {
+    console.log('username in header', username)
+    this.props.onSearch(username);
+  }
+
   render() {
     return (
-      <span id="container">
+      <span>
         <h1>Welcome to Twitter Top 25!</h1>
-        <SearchBar />
+        <SearchBar onSearchEnter={this.handleSearch.bind(this)} />
       </span>
     )
   }

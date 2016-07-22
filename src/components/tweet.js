@@ -12,6 +12,7 @@ export default class Tweet extends Component {
 
   render() {
     return (
+    <span>
       <Card>
         <CardHeader
           title={this.props.tweet.user.screen_name}
@@ -25,6 +26,7 @@ export default class Tweet extends Component {
           <DateDisplay date={this.props.tweet.created_at} />
         </CardText>
       </Card>
+    </span>
 		)
 	}
 }
