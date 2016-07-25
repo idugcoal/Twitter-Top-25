@@ -18,7 +18,6 @@ export default class Tweet extends Component {
             avatar={this.props.tweet.user.profile_image_url}
             actAsExpander={false}
             showExpandableButton={false}
-
           />
           <CardText>
             {this.props.tweet.text}
