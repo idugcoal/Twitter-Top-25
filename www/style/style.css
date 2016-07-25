@@ -32,5 +32,8 @@ body {
 
 .tweet {
   display: flex;
+  justify-content: center;
+  /*width: 50%;*/
+  /*max-width: 50%;*/
   /*min-width: 45vw;*/
 }
